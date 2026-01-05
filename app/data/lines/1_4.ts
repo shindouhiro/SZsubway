@@ -5,10 +5,80 @@ export const line1: Line = {
   name: { zh: "1号线 (罗宝线)", en: "Line 1 (Luobao Line)" },
   color: "#00ab38",
   stations: [
-    { id: "101", name: { zh: "罗湖", en: "Luohu" }, toilet: { zh: "C出口通道旁", en: "Near Exit C" }, surroundings: { zh: ["罗湖火车站", "罗湖商业城"], en: ["Luohu Railway Station", "Luohu Commercial City"] }, x: 880, y: 400 },
-    { id: "102", name: { zh: "国贸", en: "Guomao" }, toilet: { zh: "站厅B端近B出口", en: "Near Exit B" }, surroundings: { zh: ["金光华广场"], en: ["King Glory Plaza"] }, x: 850, y: 390 },
-    { id: "103", name: { zh: "老街", en: "Laojie" }, toilet: { zh: "站厅中部", en: "Hall Center" }, surroundings: { zh: ["东门步行街"], en: ["Dongmen St"] }, transfer: ["3"], x: 820, y: 380 },
-    { id: "104", name: { zh: "大剧院", en: "Grand Theater" }, toilet: { zh: "站台东端", en: "Platform East" }, surroundings: { zh: ["万象城", "京基100"], en: ["The MixC", "KK100"] }, transfer: ["2", "5", "8"], x: 790, y: 370 },
+    {
+      id: "101",
+      name: { zh: "罗湖", en: "Luohu" },
+      toilet: { zh: "C出口通道旁", en: "Near Exit C" },
+      toilets: [
+        { location: { zh: "C出口通道旁", en: "Near Exit C" }, exit: "C" }
+      ],
+      exits: [
+        { id: "A", x: -30, y: -20 },
+        { id: "B", x: -20, y: 30 },
+        { id: "C", x: 30, y: 20 },
+        { id: "D", x: 20, y: -30 },
+        { id: "E", x: 40, y: -10 }
+      ],
+      surroundings: { zh: ["罗湖火车站", "罗湖商业城"], en: ["Luohu Railway Station", "Luohu Commercial City"] },
+      x: 880, y: 400
+    },
+    {
+      id: "102",
+      name: { zh: "国贸", en: "Guomao" },
+      toilet: { zh: "站厅B端近B出口", en: "Near Exit B" },
+      toilets: [
+        { location: { zh: "站厅B端", en: "Hall End B" }, exit: "B" }
+      ],
+      exits: [
+        { id: "A", x: -25, y: -25 },
+        { id: "B", x: 25, y: -25 },
+        { id: "C", x: 25, y: 25 },
+        { id: "D", x: -25, y: 25 },
+        { id: "E", x: 0, y: 35 }
+      ],
+      surroundings: { zh: ["金光华广场"], en: ["King Glory Plaza"] },
+      x: 850, y: 390
+    },
+    {
+      id: "103",
+      name: { zh: "老街", en: "Laojie" },
+      toilet: { zh: "站厅中部", en: "Hall Center" },
+      toilets: [
+        { location: { zh: "站厅中部", en: "Hall Center" }, exit: "C" }
+      ],
+      exits: [
+        { id: "A", x: -30, y: -20 },
+        { id: "B", x: -10, y: -35 },
+        { id: "C", x: 30, y: -20 },
+        { id: "D", x: 30, y: 20 },
+        { id: "E", x: 0, y: 35 },
+        { id: "F", x: -30, y: 20 },
+        { id: "G", x: -40, y: 0 },
+        { id: "H", x: 40, y: 0 }
+      ],
+      surroundings: { zh: ["东门步行街"], en: ["Dongmen St"] },
+      transfer: ["3"],
+      x: 820, y: 380
+    },
+    {
+      id: "104",
+      name: { zh: "大剧院", en: "Grand Theater" },
+      toilet: { zh: "站台东端", en: "Platform East" },
+      toilets: [
+        { location: { zh: "站台东端", en: "Platform East" }, exit: "B" }
+      ],
+      exits: [
+        { id: "A", x: -30, y: -25 },
+        { id: "B", x: 10, y: -35 },
+        { id: "C", x: 30, y: -10 },
+        { id: "D", x: 20, y: 30 },
+        { id: "E", x: -20, y: 30 },
+        { id: "F", x: -35, y: 10 }
+      ],
+      surroundings: { zh: ["万象城", "京基100"], en: ["The MixC", "KK100"] },
+      transfer: ["2", "5", "8"],
+      x: 790, y: 370
+    },
     { id: "105", name: { zh: "科学馆", en: "Science Museum" }, toilet: { zh: "站厅西端", en: "Hall West" }, surroundings: { zh: ["中信广场"], en: ["CITIC Plaza"] }, transfer: ["6"], x: 760, y: 370 },
     { id: "106", name: { zh: "华强路", en: "Huaqiang Rd" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["华强北电子世界"], en: ["Huaqiangbei Electronics"] }, x: 730, y: 370 },
     { id: "107", name: { zh: "岗厦", en: "Gangxia" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["卓悦中心"], en: ["One Avenue"] }, transfer: ["10"], x: 700, y: 380 },
@@ -40,10 +110,19 @@ export const line1: Line = {
 
 export const line2: Line = {
   id: "2",
-  name: { zh: "2号线 (蛇口线)", en: "Line 2 (Shekou Line)" },
-  color: "#c6562d",
+  name: { zh: "2号线 (赤湾线)", en: "Line 2 (Chiwan Line)" },
+  color: "#b76428",
   stations: [
-    { id: "201", name: { zh: "赤湾", en: "Chiwan" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["赤湾"], en: ["Chiwan"] }, transfer: ["5"], x: 100, y: 500 },
+    {
+      id: "201",
+      name: { zh: "赤湾", en: "Chiwan" },
+      toilet: { zh: "站厅", en: "Hall" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "C" }],
+      exits: [{ id: "A", x: -25, y: -25 }, { id: "B", x: 25, y: -25 }, { id: "C", x: 25, y: 25 }, { id: "D", x: -25, y: 25 }],
+      surroundings: { zh: ["赤湾"], en: ["Chiwan"] },
+      transfer: ["5"],
+      x: 100, y: 500
+    },
     { id: "202", name: { zh: "蛇口港", en: "Shekou Port" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["蛇口客运码头"], en: ["Shekou Ferry"] }, x: 120, y: 490 },
     { id: "203", name: { zh: "海上世界", en: "Sea World" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["海上世界"], en: ["Sea World"] }, transfer: ["12"], x: 150, y: 480 },
     { id: "204", name: { zh: "水湾", en: "Shuiwan" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["水湾1979"], en: ["Shuiwan 1979"] }, x: 180, y: 470 },

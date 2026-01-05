@@ -7,15 +7,18 @@ export function MapVisualization({
   selectedStation,
   onStationClick,
   lang = 'zh',
+  t,
 }: {
   data: Line[];
   selectedLine: Line | null;
   selectedStation: Station | null;
   onStationClick: (station: Station) => void;
   lang?: 'zh' | 'en';
+  t: (key: any) => string;
 }) {
   const [transform, setTransform] = useState({ x: 0, y: 0, k: 1 });
   const [isDragging, setIsDragging] = useState(false);
+  const [tooltipStation, setTooltipStation] = useState<Station | null>(null);
   const startPan = useRef({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -133,18 +136,101 @@ export function MapVisualization({
                     textAnchor="middle"
                     style={{ fontSize: `${12 / transform.k}px` }} // Scale text
                     className={`font-bold fill-zinc-700 dark:fill-zinc-300 transition-opacity duration-200 ${selectedStation?.id === station.id || transform.k > 1.2
-                        ? "opacity-100"
-                        : "opacity-0 group-hover:opacity-100"
+                      ? "opacity-100"
+                      : "opacity-0 group-hover:opacity-100"
                       }`}
                   >
                     {station.name[lang]}
+                    {station.toilet.zh !== "暂无信息" && station.toilet.en !== "Info Unavailable" && (
+                      <tspan
+                        className="cursor-help"
+                        dx="2"
+                        dy="0"
+                        fontSize={`${10 / transform.k}px`}
+                        onMouseEnter={() => setTooltipStation(station)}
+                        onMouseLeave={() => setTooltipStation(null)}
+                      >
+                        🚻
+                      </tspan>
+                    )}
                   </text>
                 </g>
               ))}
             </g>
           ))}
+
+          {/* Toilet Locations (based on Exits) */}
+          {selectedStation && selectedStation.toilets && selectedStation.exits && (
+            <g transform={`translate(${selectedStation.x || 0}, ${selectedStation.y || 0})`}>
+              {selectedStation.toilets.map((toilet, idx) => {
+                const exit = selectedStation.exits?.find(e => e.id === toilet.exit);
+                if (!exit) return null;
+                return (
+                  <g key={idx} transform={`translate(${exit.x / Math.sqrt(transform.k)}, ${exit.y / Math.sqrt(transform.k)})`}>
+                    <rect
+                      x={-14 / Math.sqrt(transform.k)}
+                      y={-10 / Math.sqrt(transform.k)}
+                      width={28 / Math.sqrt(transform.k)}
+                      height={20 / Math.sqrt(transform.k)}
+                      rx={4 / Math.sqrt(transform.k)}
+                      className="fill-blue-600 shadow-sm" // Highlight color for toilet
+                    />
+                    <text
+                      x="0"
+                      y={4 / Math.sqrt(transform.k)}
+                      textAnchor="middle"
+                      className="fill-white font-bold"
+                      fontSize={`${10 / Math.sqrt(transform.k)}px`}
+                    >
+                      🚻 {exit.id}
+                    </text>
+                  </g>
+                );
+              })}
+            </g>
+          )}
         </g>
       </svg>
+
+      {/* Custom Tooltip */}
+      {tooltipStation && (
+        <div
+          className="absolute z-50 pointer-events-none bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs px-3 py-2 rounded-lg shadow-xl border border-zinc-200 dark:border-zinc-700 whitespace-nowrap transition-opacity duration-200 animate-in fade-in zoom-in-95"
+          style={{
+            left: (tooltipStation.x || 0) * transform.k + transform.x,
+            top: ((tooltipStation.y || 0) * transform.k + transform.y) - 10,
+            transform: 'translate(-50%, -100%)'
+          }}
+        >
+          <div className="font-bold mb-1 flex items-center gap-1 border-b border-zinc-200 dark:border-zinc-700 pb-1">
+            <span>🚻</span>
+            {tooltipStation.toilets && tooltipStation.toilets.length > 0 ? (
+              <span>{t('toilet')} ({tooltipStation.toilets.length})</span>
+            ) : (
+              <span>{t('toilet')}</span>
+            )}
+          </div>
+
+          {tooltipStation.toilets && tooltipStation.toilets.length > 0 ? (
+            <div className="flex flex-col gap-1">
+              {tooltipStation.toilets.map((toilet, idx) => (
+                <div key={idx} className="flex flex-col">
+                  <span className="font-medium">{toilet.location[lang]}</span>
+                  {toilet.exit && toilet.exit !== "—" && (
+                    <span className="text-[10px] text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-700 px-1 py-0.5 rounded w-fit">
+                      Exit {toilet.exit}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="opacity-90">{tooltipStation.toilet[lang]}</div>
+          )}
+          {/* Arrow */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white dark:border-t-zinc-800"></div>
+        </div>
+      )}
     </div>
   );
 }

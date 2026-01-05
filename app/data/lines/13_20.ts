@@ -5,7 +5,15 @@ export const line13: Line = {
   name: { zh: "13号线", en: "Line 13" },
   color: "#e4952d",
   stations: [
-    { id: "1301", name: { zh: "深圳湾口岸", en: "Shenzhen Bay Port" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["深圳湾口岸"], en: ["Shenzhen Bay Port"] }, x: 300, y: 500 },
+    {
+      id: "1301",
+      name: { zh: "深圳湾口岸", en: "Shenzhen Bay Port" },
+      toilet: { zh: "暂无信息", en: "Info Unavailable" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "A" }],
+      exits: [{ id: "A", x: -25, y: -25 }, { id: "B", x: 25, y: -25 }, { id: "C", x: 30, y: 10 }],
+      surroundings: { zh: ["深圳湾口岸"], en: ["Shenzhen Bay Port"] },
+      x: 300, y: 500
+    },
     { id: "1302", name: { zh: "人才公园", en: "Talent Park" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["人才公园"], en: ["Talent Park"] }, x: 320, y: 480 },
     { id: "1303", name: { zh: "后海", en: "Houhai" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["海岸城"], en: ["Coastal City"] }, transfer: ["2", "11"], x: 330, y: 450 },
     { id: "1304", name: { zh: "科苑", en: "Keyuan" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["科苑"], en: ["Keyuan"] }, transfer: ["2"], x: 360, y: 440 },
@@ -55,7 +63,16 @@ export const line16: Line = {
   name: { zh: "16号线", en: "Line 16" },
   color: "#3f566a",
   stations: [
-    { id: "1601", name: { zh: "大运", en: "Universiade" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["大运"], en: ["Universiade"] }, transfer: ["3", "14"], x: 1270, y: 80 },
+    {
+      id: "1601",
+      name: { zh: "大运", en: "Universiade" },
+      toilet: { zh: "站厅", en: "Hall" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "C" }],
+      exits: [{ id: "C", x: -30, y: -20 }, { id: "D", x: 30, y: -20 }, { id: "E", x: 0, y: 30 }],
+      surroundings: { zh: ["大运"], en: ["Universiade"] },
+      transfer: ["3", "14"],
+      x: 1270, y: 80
+    },
     { id: "1602", name: { zh: "大运中心", en: "Universiade Center" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["大运中心"], en: ["Universiade Ctr"] }, x: 1250, y: 60 },
     { id: "1603", name: { zh: "龙城公园", en: "Longcheng Park" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["龙城公园"], en: ["Longcheng Park"] }, x: 1230, y: 40 },
     { id: "1604", name: { zh: "黄阁坑", en: "Huanggekeng" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["黄阁坑"], en: ["Huanggekeng"] }, x: 1210, y: 20 },

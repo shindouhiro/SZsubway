@@ -127,8 +127,8 @@ export default function Home() {
                     setSelectedStationId(null);
                   }}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all transform active:scale-95 ${selectedLineId === line.id
-                      ? "text-white shadow-lg ring-2 ring-offset-2 dark:ring-offset-black"
-                      : "bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300"
+                    ? "text-white shadow-lg ring-2 ring-offset-2 dark:ring-offset-black"
+                    : "bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300"
                     }`}
                   style={{
                     backgroundColor:
@@ -253,6 +253,7 @@ export default function Home() {
                 setSelectedStationId(s.id);
               }}
               lang={lang}
+              t={t}
             />
           </div>
           <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">

@@ -12,10 +12,28 @@ export const line5: Line = {
     { id: "505", name: { zh: "前湾公园", en: "Qianwan Park" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["前湾公园"], en: ["Qianwan Park"] }, x: 100, y: 380 },
     { id: "506", name: { zh: "前湾", en: "Qianwan" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["前湾"], en: ["Qianwan"] }, transfer: ["9"], x: 120, y: 350 },
     { id: "507", name: { zh: "桂湾", en: "Guiwan" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["桂湾"], en: ["Guiwan"] }, x: 130, y: 330 },
-    { id: "508", name: { zh: "前海湾", en: "Qianhaiwan" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["前海"], en: ["Qianhai"] }, transfer: ["1", "11"], x: 250, y: 320 },
+    {
+      id: "508",
+      name: { zh: "前海湾", en: "Qianhaiwan" },
+      toilet: { zh: "站厅", en: "Hall" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "A" }],
+      exits: [{ id: "A", x: -30, y: -20 }, { id: "B", x: 30, y: 20 }, { id: "C", x: 20, y: -30 }],
+      surroundings: { zh: ["前海"], en: ["Qianhai"] },
+      transfer: ["1", "11"],
+      x: 250, y: 320
+    },
     { id: "509", name: { zh: "临海", en: "Linhai" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["临海"], en: ["Linhai"] }, x: 220, y: 300 },
     { id: "510", name: { zh: "宝华", en: "Baohua" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["宝华"], en: ["Baohua"] }, x: 200, y: 250 },
-    { id: "511", name: { zh: "宝安中心", en: "Bao'an Center" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["壹方城"], en: ["Uniwalk"] }, transfer: ["1"], x: 190, y: 280 },
+    {
+      id: "511",
+      name: { zh: "宝安中心", en: "Bao'an Center" },
+      toilet: { zh: "站厅", en: "Hall" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "D" }],
+      exits: [{ id: "A", x: -20, y: -20 }, { id: "B", x: 20, y: -20 }, { id: "C", x: 20, y: 20 }, { id: "D", x: -20, y: 20 }],
+      surroundings: { zh: ["壹方城"], en: ["Uniwalk"] },
+      transfer: ["1"],
+      x: 190, y: 280
+    },
     { id: "512", name: { zh: "翻身", en: "Fanshen" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["翻身"], en: ["Fanshen"] }, x: 220, y: 220 },
     { id: "513", name: { zh: "灵芝", en: "Lingzhi" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["灵芝"], en: ["Lingzhi"] }, transfer: ["12"], x: 240, y: 200 },
     { id: "514", name: { zh: "洪浪北", en: "Honglang North" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["洪浪北"], en: ["Honglang North"] }, x: 260, y: 180 },
@@ -25,7 +43,16 @@ export const line5: Line = {
     { id: "518", name: { zh: "大学城", en: "University Town" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["大学城"], en: ["University Town"] }, x: 480, y: 140 },
     { id: "519", name: { zh: "塘朗", en: "Tanglang" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["塘朗"], en: ["Tanglang"] }, x: 510, y: 130 },
     { id: "520", name: { zh: "长岭陂", en: "Changlingpi" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["长岭陂"], en: ["Changlingpi"] }, x: 540, y: 120 },
-    { id: "521", name: { zh: "深圳北站", en: "Shenzhen North Station" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["深圳北站"], en: ["Shenzhen North"] }, transfer: ["4", "6"], x: 670, y: 90 },
+    {
+      id: "521",
+      name: { zh: "深圳北站", en: "Shenzhen North Station" },
+      toilet: { zh: "站厅", en: "Hall" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "A" }],
+      exits: [{ id: "A", x: -40, y: -40 }, { id: "B", x: 40, y: -40 }, { id: "C", x: 40, y: 40 }, { id: "D", x: -40, y: 40 }],
+      surroundings: { zh: ["深圳北站"], en: ["Shenzhen North"] },
+      transfer: ["4", "6"],
+      x: 670, y: 90
+    },
     { id: "522", name: { zh: "民治", en: "Minzhi" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["民治"], en: ["Minzhi"] }, x: 700, y: 100 },
     { id: "523", name: { zh: "五和", en: "Wuhe" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["五和"], en: ["Wuhe"] }, transfer: ["10"], x: 730, y: 120 },
     { id: "524", name: { zh: "坂田", en: "Bantian" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["坂田"], en: ["Bantian"] }, x: 750, y: 130 },
@@ -50,7 +77,16 @@ export const line6: Line = {
   name: { zh: "6号线 (光明线)", en: "Line 6 (Guangming Line)" },
   color: "#34E2E2",
   stations: [
-    { id: "601", name: { zh: "科学馆", en: "Science Museum" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["科学馆"], en: ["Science Museum"] }, transfer: ["1"], x: 760, y: 370 },
+    {
+      id: "601",
+      name: { zh: "科学馆", en: "Science Museum" },
+      toilet: { zh: "站厅", en: "Hall" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "D" }],
+      exits: [{ id: "A", x: -20, y: -30 }, { id: "B", x: 20, y: -30 }, { id: "C", x: 30, y: 10 }, { id: "D", x: -20, y: 30 }],
+      surroundings: { zh: ["科学馆"], en: ["Science Museum"] },
+      transfer: ["1"],
+      x: 760, y: 370
+    },
     { id: "602", name: { zh: "通新岭", en: "Tongxinling" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["通新岭"], en: ["Tongxinling"] }, transfer: ["3"], x: 760, y: 340 },
     { id: "603", name: { zh: "体育中心", en: "Sports Center" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["体育中心"], en: ["Sports Center"] }, x: 760, y: 310 },
     { id: "604", name: { zh: "八卦岭", en: "Bagualing" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["八卦岭"], en: ["Bagualing"] }, transfer: ["7"], x: 760, y: 280 },
@@ -85,7 +121,15 @@ export const line7: Line = {
   name: { zh: "7号线 (西丽线)", en: "Line 7 (Xili Line)" },
   color: "#002e72",
   stations: [
-    { id: "701", name: { zh: "西丽湖", en: "Xili Lake" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["西丽湖"], en: ["Xili Lake"] }, x: 400, y: 120 },
+    {
+      id: "701",
+      name: { zh: "西丽湖", en: "Xili Lake" },
+      toilet: { zh: "站厅", en: "Hall" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "B" }],
+      exits: [{ id: "A", x: -25, y: -25 }, { id: "B", x: 25, y: -25 }, { id: "C", x: 0, y: 30 }],
+      surroundings: { zh: ["西丽湖"], en: ["Xili Lake"] },
+      x: 400, y: 120
+    },
     { id: "702", name: { zh: "西丽", en: "Xili" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["西丽"], en: ["Xili"] }, transfer: ["5"], x: 450, y: 150 },
     { id: "703", name: { zh: "茶光", en: "Chaguang" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["茶光"], en: ["Chaguang"] }, x: 450, y: 180 },
     { id: "704", name: { zh: "珠光", en: "Zhuguang" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["珠光"], en: ["Zhuguang"] }, x: 450, y: 210 },
@@ -120,7 +164,16 @@ export const line8: Line = {
   name: { zh: "8号线 (盐田线)", en: "Line 8 (Yantian Line)" },
   color: "#d6287e",
   stations: [
-    { id: "801", name: { zh: "莲塘", en: "Liantang" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["莲塘"], en: ["Liantang"] }, transfer: ["2"], x: 970, y: 450 },
+    {
+      id: "801",
+      name: { zh: "莲塘", en: "Liantang" },
+      toilet: { zh: "暂无信息", en: "Info Unavailable" },
+      toilets: [{ location: { zh: "站厅", en: "Hall" }, exit: "A" }],
+      exits: [{ id: "A", x: -30, y: -20 }, { id: "B", x: 0, y: 30 }, { id: "C", x: 30, y: -20 }],
+      surroundings: { zh: ["莲塘"], en: ["Liantang"] },
+      transfer: ["2"],
+      x: 970, y: 450
+    },
     { id: "802", name: { zh: "梧桐山南", en: "Wutong Mountain South" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["梧桐山"], en: ["Wutong Mtn"] }, x: 1000, y: 460 },
     { id: "803", name: { zh: "沙头角", en: "Shatoujiao" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["沙头角"], en: ["Shatoujiao"] }, x: 1030, y: 470 },
     { id: "804", name: { zh: "海山", en: "Haishan" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["海山"], en: ["Haishan"] }, x: 1060, y: 480 },
