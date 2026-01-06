@@ -122,30 +122,101 @@ export const line7: Line = {
       x: 400, y: 120
     },
     { id: "702", name: { zh: "西丽", en: "Xili" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["西丽"], en: ["Xili"] }, transfer: ["5"], x: 450, y: 150 },
-    { id: "703", name: { zh: "茶光", en: "Chaguang" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["茶光"], en: ["Chaguang"] }, x: 450, y: 180 },
-    { id: "704", name: { zh: "珠光", en: "Zhuguang" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["珠光"], en: ["Zhuguang"] }, x: 450, y: 210 },
-    { id: "705", name: { zh: "龙井", en: "Longjing" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["龙井"], en: ["Longjing"] }, x: 450, y: 240 },
-    { id: "706", name: { zh: "桃源村", en: "Taoyuancun" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["桃源村"], en: ["Taoyuancun"] }, x: 450, y: 270 },
-    { id: "707", name: { zh: "深云", en: "Shenyun" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["深云"], en: ["Shenyun"] }, x: 480, y: 300 },
-    { id: "708", name: { zh: "安托山", en: "Antuoshan" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["安托山"], en: ["Antuoshan"] }, transfer: ["2"], x: 510, y: 330 },
-    { id: "709", name: { zh: "农林", en: "Nonglin" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["农林"], en: ["Nonglin"] }, x: 540, y: 340 },
-    { id: "710", name: { zh: "车公庙", en: "Chegongmiao" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["车公庙"], en: ["Chegongmiao"] }, transfer: ["1", "9", "11"], x: 580, y: 380 },
-    { id: "711", name: { zh: "上沙", en: "Shangsha" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["上沙"], en: ["Shangsha"] }, x: 580, y: 410 },
-    { id: "712", name: { zh: "沙尾", en: "Shawei" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["沙尾"], en: ["Shawei"] }, x: 580, y: 430 },
-    { id: "713", name: { zh: "石厦", en: "Shixia" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["石厦"], en: ["Shixia"] }, transfer: ["3"], x: 670, y: 405 },
-    { id: "714", name: { zh: "皇岗村", en: "Huanggang Village" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["皇岗村"], en: ["Huanggang Village"] }, x: 660, y: 430 },
-    { id: "715", name: { zh: "福民", en: "Fumin" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["福民"], en: ["Fumin"] }, transfer: ["4", "10"], x: 670, y: 500 },
-    { id: "716", name: { zh: "皇岗口岸", en: "Huanggang Checkpoint" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["皇岗口岸"], en: ["Huanggang Checkpoint"] }, x: 690, y: 520 },
-    { id: "717", name: { zh: "赤尾", en: "Chiwei" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["赤尾"], en: ["Chiwei"] }, x: 710, y: 530 },
-    { id: "718", name: { zh: "华强南", en: "Huaqiang South" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["华强南"], en: ["Huaqiang South"] }, x: 730, y: 530 },
-    { id: "719", name: { zh: "华强北", en: "Huaqiang North" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["华强北"], en: ["Huaqiang North"] }, transfer: ["2"], x: 730, y: 350 },
-    { id: "720", name: { zh: "华新", en: "Huaxin" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["华新"], en: ["Huaxin"] }, transfer: ["3"], x: 730, y: 330 },
-    { id: "721", name: { zh: "黄木岗", en: "Huangmugang" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["黄木岗"], en: ["Huangmugang"] }, transfer: ["14"], x: 730, y: 300 },
-    { id: "722", name: { zh: "八卦岭", en: "Bagualing" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["八卦岭"], en: ["Bagualing"] }, transfer: ["6"], x: 760, y: 280 },
-    { id: "723", name: { zh: "红岭北", en: "Hongling North" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["红岭北"], en: ["Hongling North"] }, transfer: ["9"], x: 790, y: 280 },
-    { id: "724", name: { zh: "笋岗", en: "Sungang" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["笋岗"], en: ["Sungang"] }, x: 820, y: 280 },
-    { id: "725", name: { zh: "洪湖", en: "Honghu" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["洪湖"], en: ["Honghu"] }, x: 850, y: 280 },
-    { id: "726", name: { zh: "田贝", en: "Tianbei" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["田贝"], en: ["Tianbei"] }, transfer: ["3"], x: 910, y: 320 },
+    { id: "703", name: { zh: "茶光", en: "Chaguang" }, toilet: { zh: "站厅A出入口", en: "Hall Exit A" }, toilets: [{ location: { zh: "站厅A出入口", en: "Hall Exit A" }, exit: "A" }], surroundings: { zh: ["茶光"], en: ["Chaguang"] }, x: 450, y: 180 },
+    { id: "704", name: { zh: "珠光", en: "Zhuguang" }, toilet: { zh: "站厅D出入口", en: "Hall Exit D" }, toilets: [{ location: { zh: "站厅D出入口", en: "Hall Exit D" }, exit: "D" }], surroundings: { zh: ["珠光"], en: ["Zhuguang"] }, x: 450, y: 210 },
+    { id: "705", name: { zh: "龙井", en: "Longjing" }, toilet: { zh: "C出入口通道", en: "Exit C Passage" }, toilets: [{ location: { zh: "C出入口通道", en: "Exit C Passage" }, exit: "C" }], surroundings: { zh: ["龙井"], en: ["Longjing"] }, x: 450, y: 240 },
+    { id: "706", name: { zh: "桃源村", en: "Taoyuancun" }, toilet: { zh: "D出入口通道", en: "Exit D Passage" }, toilets: [{ location: { zh: "D出入口通道", en: "Exit D Passage" }, exit: "D" }], surroundings: { zh: ["桃源村"], en: ["Taoyuancun"] }, x: 450, y: 270 },
+    { id: "707", name: { zh: "深云", en: "Shenyun" }, toilet: { zh: "靠近B出入口", en: "Near Exit B" }, toilets: [{ location: { zh: "靠近B出入口", en: "Near Exit B" }, exit: "B" }], surroundings: { zh: ["深云"], en: ["Shenyun"] }, x: 480, y: 300 },
+    { id: "708", name: { zh: "安托山", en: "Antuoshan" }, toilet: { zh: "A出入口通道", en: "Exit A Passage" }, toilets: [{ location: { zh: "A出入口通道", en: "Exit A Passage" }, exit: "A" }], surroundings: { zh: ["安托山"], en: ["Antuoshan"] }, transfer: ["2"], x: 510, y: 330 },
+    { id: "709", name: { zh: "农林", en: "Nonglin" }, toilet: { zh: "站厅B出入口通道", en: "Hall Exit B Passage" }, toilets: [{ location: { zh: "站厅B出入口通道", en: "Hall Exit B Passage" }, exit: "B" }], surroundings: { zh: ["农林"], en: ["Nonglin"] }, x: 540, y: 340 },
+    { id: "710", name: { zh: "车公庙", en: "Chegongmiao" }, toilet: { zh: "B出入口通道", en: "Exit B Passage" }, toilets: [{ location: { zh: "B出入口通道", en: "Exit B Passage" }, exit: "B" }], surroundings: { zh: ["车公庙"], en: ["Chegongmiao"] }, transfer: ["1", "9", "11"], x: 580, y: 380 },
+    { id: "711", name: { zh: "上沙", en: "Shangsha" }, toilet: { zh: "E出入口通道旁", en: "Beside Exit E Passage" }, toilets: [{ location: { zh: "E出入口通道旁", en: "Beside Exit E Passage" }, exit: "E" }], surroundings: { zh: ["上沙"], en: ["Shangsha"] }, x: 580, y: 410 },
+    { id: "712", name: { zh: "沙尾", en: "Shawei" }, toilet: { zh: "D出入口通道", en: "Exit D Passage" }, toilets: [{ location: { zh: "D出入口通道", en: "Exit D Passage" }, exit: "D" }], surroundings: { zh: ["沙尾"], en: ["Shawei"] }, x: 580, y: 430 },
+    {
+      id: "713",
+      name: { zh: "石厦", en: "Shixia" },
+      toilet: { zh: "站厅A/G出入口、站台A端", en: "Hall Exit A/G, Platform End A" },
+      toilets: [
+        { location: { zh: "站厅A出入口", en: "Hall Exit A" }, exit: "A" },
+        { location: { zh: "站厅G出入口", en: "Hall Exit G" }, exit: "G" },
+        { location: { zh: "7号线站台A端", en: "Line 7 Platform End A" }, exit: "—" }
+      ],
+      surroundings: { zh: ["石厦"], en: ["Shixia"] },
+      transfer: ["3"],
+      x: 670, y: 405
+    },
+    { id: "714", name: { zh: "皇岗村", en: "Huanggang Village" }, toilet: { zh: "B出入口通道旁", en: "Beside Exit B Passage" }, toilets: [{ location: { zh: "B出入口通道旁", en: "Beside Exit B Passage" }, exit: "B" }], surroundings: { zh: ["皇岗村"], en: ["Huanggang Village"] }, x: 660, y: 430 },
+    {
+      id: "715",
+      name: { zh: "福民", en: "Fumin" },
+      toilet: { zh: "J/D口及站台", en: "Exit J/D & Platforms" },
+      toilets: [
+        { location: { zh: "J出入口通道 (10号线)", en: "Exit J Passage (Line 10)" }, exit: "J" },
+        { location: { zh: "10号线站台往福田口岸方向头端", en: "Line 10 Platform towards Futian Checkpoint" }, exit: "—" },
+        { location: { zh: "7号线站台往太安方向头端", en: "Line 7 Platform towards Tai'an" }, exit: "—" },
+        { location: { zh: "D出入口 (4号线)", en: "Exit D (Line 4)" }, exit: "D" }
+      ],
+      surroundings: { zh: ["福民"], en: ["Fumin"] },
+      transfer: ["4", "10"],
+      x: 670, y: 500
+    },
+    { id: "716", name: { zh: "皇岗口岸", en: "Huanggang Checkpoint" }, toilet: { zh: "D口下沉广场", en: "Exit D Sunken Plaza" }, toilets: [{ location: { zh: "D口下沉广场", en: "Exit D Sunken Plaza" }, exit: "D" }], surroundings: { zh: ["皇岗口岸"], en: ["Huanggang Checkpoint"] }, x: 690, y: 520 },
+    { id: "717", name: { zh: "赤尾", en: "Chiwei" }, toilet: { zh: "A出入口通道", en: "Exit A Passage" }, toilets: [{ location: { zh: "A出入口通道", en: "Exit A Passage" }, exit: "A" }], surroundings: { zh: ["赤尾"], en: ["Chiwei"] }, x: 710, y: 530 },
+    { id: "718", name: { zh: "华强南", en: "Huaqiang South" }, toilet: { zh: "C出入口通道旁", en: "Beside Exit C Passage" }, toilets: [{ location: { zh: "C出入口通道旁", en: "Beside Exit C Passage" }, exit: "C" }], surroundings: { zh: ["华强南"], en: ["Huaqiang South"] }, x: 730, y: 530 },
+    { id: "719", name: { zh: "华强北", en: "Huaqiang North" }, toilet: { zh: "站台往西丽湖方向头端", en: "Platform Head towards Xili Lake" }, toilets: [{ location: { zh: "站台往西丽湖方向头端", en: "Platform Head towards Xili Lake" }, exit: "—" }], surroundings: { zh: ["华强北"], en: ["Huaqiang North"] }, transfer: ["2"], x: 730, y: 350 },
+    { id: "720", name: { zh: "华新", en: "Huaxin" }, toilet: { zh: "B出入口通道", en: "Exit B Passage" }, toilets: [{ location: { zh: "B出入口通道", en: "Exit B Passage" }, exit: "B" }], surroundings: { zh: ["华新"], en: ["Huaxin"] }, transfer: ["3"], x: 730, y: 330 },
+    {
+      id: "721",
+      name: { zh: "黄木岗", en: "Huangmugang" },
+      toilet: { zh: "B口通道、站台尾端", en: "Exit B Passage, Platform End" },
+      toilets: [
+        { location: { zh: "B出入口通道", en: "Exit B Passage" }, exit: "B" },
+        { location: { zh: "往西丽湖方向的站台尾端", en: "Platform End towards Xili Lake" }, exit: "—" }
+      ],
+      surroundings: { zh: ["黄木岗"], en: ["Huangmugang"] },
+      transfer: ["14"],
+      x: 730, y: 300
+    },
+    {
+      id: "722",
+      name: { zh: "八卦岭", en: "Bagualing" },
+      toilet: { zh: "B/E口、7/6号线站台", en: "Exits B/E, Line 7/6 Platforms" },
+      toilets: [
+        { location: { zh: "靠近B出入口", en: "Near Exit B" }, exit: "B" },
+        { location: { zh: "7号线太安方向头端", en: "Line 7 Platform Head towards Tai'an" }, exit: "—" },
+        { location: { zh: "E出入口", en: "Exit E" }, exit: "E" },
+        { location: { zh: "6号线科学馆方向站台尾端", en: "Line 6 Platform End towards Science Museum" }, exit: "—" }
+      ],
+      surroundings: { zh: ["八卦岭"], en: ["Bagualing"] },
+      transfer: ["6"],
+      x: 760, y: 280
+    },
+    {
+      id: "723",
+      name: { zh: "红岭北", en: "Hongling North" },
+      toilet: { zh: "B出入口、站台", en: "Exit B, Platform" },
+      toilets: [
+        { location: { zh: "B出入口", en: "Exit B" }, exit: "B" },
+        { location: { zh: "7号线太安方向头端", en: "Line 7 Platform Head towards Tai'an" }, exit: "—" }
+      ],
+      surroundings: { zh: ["红岭北"], en: ["Hongling North"] },
+      transfer: ["9"],
+      x: 790, y: 280
+    },
+    { id: "724", name: { zh: "笋岗", en: "Sungang" }, toilet: { zh: "车站E出入口附近", en: "Near Exit E" }, toilets: [{ location: { zh: "车站E出入口附近", en: "Near Exit E" }, exit: "E" }], surroundings: { zh: ["笋岗"], en: ["Sungang"] }, x: 820, y: 280 },
+    { id: "725", name: { zh: "洪湖", en: "Honghu" }, toilet: { zh: "车站A出入口附近", en: "Near Exit A" }, toilets: [{ location: { zh: "车站A出入口附近", en: "Near Exit A" }, exit: "A" }], surroundings: { zh: ["洪湖"], en: ["Honghu"] }, x: 850, y: 280 },
+    {
+      id: "726",
+      name: { zh: "田贝", en: "Tianbei" },
+      toilet: { zh: "D/F出入口通道", en: "Exit D/F Passage" },
+      toilets: [
+        { location: { zh: "D出入口通道", en: "Exit D Passage" }, exit: "D" },
+        { location: { zh: "F出入口通道", en: "Exit F Passage" }, exit: "F" }
+      ],
+      surroundings: { zh: ["田贝"], en: ["Tianbei"] },
+      transfer: ["3"],
+      x: 910, y: 320
+    },
     { id: "727", name: { zh: "太安", en: "Tai'an" }, toilet: { zh: "站台两端 (付费区内)", en: "Platform Ends (Paid Area)" }, toilets: [{ location: { zh: "站台两端", en: "Platform Ends" }, exit: "—" }], surroundings: { zh: ["太安"], en: ["Tai'an"] }, transfer: ["5"], x: 900, y: 300 }
   ]
 };

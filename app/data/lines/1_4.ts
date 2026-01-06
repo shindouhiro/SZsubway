@@ -177,21 +177,82 @@ export const line3: Line = {
   name: { zh: "3号线 (龙岗线)", en: "Line 3 (Longgang Line)" },
   color: "#00a1e3",
   stations: [
-    { id: "301", name: { zh: "福保", en: "Futian Bonded Area" }, toilet: { zh: "站台层 (闸内)", en: "Platform (Inside Gate)" }, toilets: [{ location: { zh: "站台层", en: "Platform" }, exit: "—" }], surroundings: { zh: ["保税区"], en: ["Bonded Area"] }, x: 670, y: 450 },
-    { id: "302", name: { zh: "益田", en: "Yitian" }, toilet: { zh: "站台层 (闸内)", en: "Platform (Inside Gate)" }, toilets: [{ location: { zh: "站台层", en: "Platform" }, exit: "—" }], surroundings: { zh: ["益田村"], en: ["Yitian Village"] }, x: 670, y: 420 },
-    { id: "303", name: { zh: "石厦", en: "Shixia" }, toilet: { zh: "站台层 (闸内)", en: "Platform (Inside Gate)" }, toilets: [{ location: { zh: "站台层", en: "Platform" }, exit: "—" }], surroundings: { zh: ["石厦"], en: ["Shixia"] }, transfer: ["7"], x: 670, y: 405 },
-    { id: "109a", name: { zh: "购物公园", en: "Shopping Park" }, toilet: { zh: "3号线站台 / D出口旁", en: "Line 3 Platform / Near Exit D" }, toilets: [{ location: { zh: "3号线站台", en: "Line 3 Platform" }, exit: "—" }, { location: { zh: "D出口旁", en: "Near Exit D" }, exit: "D" }], surroundings: { zh: ["君子广场"], en: ["Junzi Plaza"] }, transfer: ["1"], x: 640, y: 390 },
-    { id: "304", name: { zh: "福田", en: "Futian" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["中心四路"], en: ["Zhongxin 4th Rd"] }, transfer: ["2", "11"], x: 650, y: 340 },
-    { id: "404a", name: { zh: "少年宫", en: "Children's Palace" }, toilet: { zh: "站厅", en: "Hall" }, surroundings: { zh: ["音乐厅"], en: ["Concert Hall"] }, transfer: ["4"], x: 670, y: 300 },
-    { id: "305", name: { zh: "莲花村", en: "Lianhuacun" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["中心公园"], en: ["Central Park"] }, transfer: ["10"], x: 700, y: 320 },
-    { id: "306", name: { zh: "华新", en: "Huaxin" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["华强北"], en: ["Huaqiangbei"] }, transfer: ["7"], x: 730, y: 330 },
-    { id: "307", name: { zh: "通新岭", en: "Tongxinling" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["四川大厦"], en: ["Sichuan Tower"] }, transfer: ["6"], x: 760, y: 340 },
-    { id: "308", name: { zh: "红岭", en: "Hongling" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["红岭"], en: ["Hongling"] }, transfer: ["9"], x: 790, y: 350 },
+    { id: "301", name: { zh: "福保", en: "Futian Bonded Area" }, toilet: { zh: "B出入口", en: "Exit B" }, toilets: [{ location: { zh: "B出入口", en: "Exit B" }, exit: "B" }], surroundings: { zh: ["保税区"], en: ["Bonded Area"] }, x: 670, y: 450 },
+    { id: "302", name: { zh: "益田", en: "Yitian" }, toilet: { zh: "C出入口通道", en: "Exit C Passage" }, toilets: [{ location: { zh: "C出入口通道", en: "Exit C Passage" }, exit: "C" }], surroundings: { zh: ["益田村"], en: ["Yitian Village"] }, x: 670, y: 420 },
+    {
+      id: "303",
+      name: { zh: "石厦", en: "Shixia" },
+      toilet: { zh: "A/G口及7号线站台", en: "Exit A/G & Line 7 Platform" },
+      toilets: [
+        { location: { zh: "A出入口", en: "Exit A" }, exit: "A" },
+        { location: { zh: "G出入口", en: "Exit G" }, exit: "G" },
+        { location: { zh: "7号线站台A端", en: "Line 7 Platform End A" }, exit: "—" }
+      ],
+      surroundings: { zh: ["石厦"], en: ["Shixia"] },
+      transfer: ["7"],
+      x: 670, y: 405
+    },
+    { id: "109a", name: { zh: "购物公园", en: "Shopping Park" }, toilet: { zh: "H出入口", en: "Exit H" }, toilets: [{ location: { zh: "H出入口", en: "Exit H" }, exit: "H" }], surroundings: { zh: ["君子广场"], en: ["Junzi Plaza"] }, transfer: ["1"], x: 640, y: 390 },
+    {
+      id: "304",
+      name: { zh: "福田", en: "Futian" },
+      toilet: { zh: "多个出口通道及垂梯处", en: "Multiple Exit Passages & Elevators" },
+      toilets: [
+        { location: { zh: "站厅1出入口通道处", en: "Hall Exit 1 Passage" }, exit: "1" },
+        { location: { zh: "31出入口垂梯处", en: "Exit 31 Elevator" }, exit: "31" },
+        { location: { zh: "通往3出入口通道处", en: "Passage towards Exit 3" }, exit: "3" },
+        { location: { zh: "通往28出入口通道处", en: "Passage towards Exit 28" }, exit: "28" },
+        { location: { zh: "27出入口通道处", en: "Exit 27 Passage" }, exit: "27" },
+        { location: { zh: "4b出入口往高铁通道近高铁", en: "Exit 4b towards High-speed Rail" }, exit: "4b" }
+      ],
+      surroundings: { zh: ["中心四路"], en: ["Zhongxin 4th Rd"] },
+      transfer: ["2", "11"],
+      x: 650, y: 340
+    },
+    { id: "404a", name: { zh: "少年宫", en: "Children's Palace" }, toilet: { zh: "E出入口", en: "Exit E" }, toilets: [{ location: { zh: "E出入口", en: "Exit E" }, exit: "E" }], surroundings: { zh: ["音乐厅"], en: ["Concert Hall"] }, transfer: ["4"], x: 670, y: 300 },
+    {
+      id: "305",
+      name: { zh: "莲花村", en: "Lianhuacun" },
+      toilet: { zh: "A1/E口及站台", en: "Exit A1/E & Platform" },
+      toilets: [
+        { location: { zh: "A1出入口通道内", en: "Exit A1 Passage" }, exit: "A1" },
+        { location: { zh: "E出入口通道旁", en: "Beside Exit E Passage" }, exit: "E" },
+        { location: { zh: "10号线双拥街方向站台头端", en: "Line 10 Platform towards Shuangyong St" }, exit: "—" }
+      ],
+      surroundings: { zh: ["中心公园"], en: ["Central Park"] },
+      transfer: ["10"],
+      x: 700, y: 320
+    },
+    {
+      id: "306",
+      name: { zh: "华新", en: "Huaxin" },
+      toilet: { zh: "B口通道及7号线站台", en: "Exit B Passage & Line 7 Platform" },
+      toilets: [
+        { location: { zh: "B出入口通道", en: "Exit B Passage" }, exit: "B" },
+        { location: { zh: "7号线站台A端", en: "Line 7 Platform End A" }, exit: "—" }
+      ],
+      surroundings: { zh: ["华强北"], en: ["Huaqiangbei"] },
+      transfer: ["7"],
+      x: 730, y: 330
+    },
+    { id: "307", name: { zh: "通新岭", en: "Tongxinling" }, toilet: { zh: "C口通道及6号线站台", en: "Exit C Passage & Line 6 Platform" }, toilets: [{ location: { zh: "C出入口通道", en: "Exit C Passage" }, exit: "C" }, { location: { zh: "6号线站台", en: "Line 6 Platform" }, exit: "—" }], surroundings: { zh: ["四川大厦"], en: ["Sichuan Tower"] }, transfer: ["6"], x: 760, y: 340 },
+    { id: "308", name: { zh: "红岭", en: "Hongling" }, toilet: { zh: "B出入口换乘通道", en: "Exit B Transfer Passage" }, toilets: [{ location: { zh: "B出入口换乘通道", en: "Exit B Transfer Passage" }, exit: "B" }], surroundings: { zh: ["红岭"], en: ["Hongling"] }, transfer: ["9"], x: 790, y: 350 },
     { id: "103a", name: { zh: "老街", en: "Laojie" }, toilet: { zh: "站台层 (1/3号线换乘处)", en: "Platform (Line 1/3 Transfer)" }, toilets: [{ location: { zh: "站台层", en: "Platform" }, exit: "—" }], surroundings: { zh: ["步行街"], en: ["Pedestrian Street"] }, transfer: ["1"], x: 820, y: 380 },
-    { id: "309", name: { zh: "晒布", en: "Shaibu" }, toilet: { zh: "暂无信息", en: "Info Unavailable" }, surroundings: { zh: ["东门"], en: ["Dongmen"] }, x: 850, y: 360 },
-    { id: "310", name: { zh: "翠竹", en: "Cuizhu" }, toilet: { zh: "C/D出口通道 (需出闸)", en: "Exit C/D Passage (Outside Gate)" }, toilets: [{ location: { zh: "C/D出口通道", en: "Exit C/D Passage" }, exit: "C/D" }], surroundings: { zh: ["人民医院"], en: ["People's Hospital"] }, x: 880, y: 340 },
-    { id: "311", name: { zh: "田贝", en: "Tianbei" }, toilet: { zh: "C/D出口通道 (需出闸)", en: "Exit C/D Passage (Outside Gate)" }, toilets: [{ location: { zh: "C/D出口通道", en: "Exit C/D Passage" }, exit: "C/D" }], surroundings: { zh: ["田贝"], en: ["Tianbei"] }, transfer: ["7"], x: 910, y: 320 },
-    { id: "312", name: { zh: "水贝", en: "Shuibei" }, toilet: { zh: "C/D出口通道 (需出闸)", en: "Exit C/D Passage (Outside Gate)" }, toilets: [{ location: { zh: "C/D出口通道", en: "Exit C/D Passage" }, exit: "C/D" }], surroundings: { zh: ["水贝国际珠宝交易中心"], en: ["Jewelry Center"] }, x: 940, y: 300 },
+    { id: "309", name: { zh: "晒布", en: "Shaibu" }, toilet: { zh: "C出入口通道内", en: "Exit C Passage" }, toilets: [{ location: { zh: "C出入口通道内", en: "Exit C Passage" }, exit: "C" }], surroundings: { zh: ["东门"], en: ["Dongmen"] }, x: 850, y: 360 },
+    { id: "310", name: { zh: "翠竹", en: "Cuizhu" }, toilet: { zh: "B2出入口通道", en: "Exit B2 Passage" }, toilets: [{ location: { zh: "B2出入口通道", en: "Exit B2 Passage" }, exit: "B2" }], surroundings: { zh: ["人民医院"], en: ["People's Hospital"] }, x: 880, y: 340 },
+    {
+      id: "311",
+      name: { zh: "田贝", en: "Tianbei" },
+      toilet: { zh: "D/F出入口通道", en: "Exit D/F Passage" },
+      toilets: [
+        { location: { zh: "D出入口通道", en: "Exit D Passage" }, exit: "D" },
+        { location: { zh: "F出入口通道", en: "Exit F Passage" }, exit: "F" }
+      ],
+      surroundings: { zh: ["田贝"], en: ["Tianbei"] },
+      transfer: ["7"],
+      x: 910, y: 320
+    },
+    { id: "312", name: { zh: "水贝", en: "Shuibei" }, toilet: { zh: "A出入口通道", en: "Exit A Passage" }, toilets: [{ location: { zh: "A出入口通道", en: "Exit A Passage" }, exit: "A" }], surroundings: { zh: ["水贝国际珠宝交易中心"], en: ["Jewelry Center"] }, x: 940, y: 300 },
     { id: "313", name: { zh: "草埔", en: "Caopu" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["草埔"], en: ["Caopu"] }, x: 970, y: 280 },
     { id: "314", name: { zh: "布吉", en: "Buji" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["深圳东站"], en: ["Shenzhen East Station"] }, transfer: ["5", "14"], x: 1000, y: 260 },
     { id: "315", name: { zh: "木棉湾", en: "Mumianwan" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["木棉湾"], en: ["Mumianwan"] }, x: 1030, y: 240 },
@@ -206,8 +267,19 @@ export const line3: Line = {
     { id: "324", name: { zh: "爱联", en: "Ailian" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["爱联"], en: ["Ailian"] }, x: 1300, y: 60 },
     { id: "325", name: { zh: "吉祥", en: "Jixiang" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["龙岗中心城"], en: ["Longgang Center"] }, x: 1330, y: 40 },
     { id: "326", name: { zh: "龙城广场", en: "Longcheng Square" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["龙城广场"], en: ["Longcheng Square"] }, x: 1360, y: 20 },
-    { id: "327", name: { zh: "南联", en: "Nanlian" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["南联"], en: ["Nanlian"] }, x: 1390, y: 0 },
-    { id: "328", name: { zh: "双龙", en: "Shuanglong" }, toilet: { zh: "站厅层 (闸外 D出口附近)", en: "Hall (Outside Gate, Near Exit D)" }, toilets: [{ location: { zh: "D出口附近 (闸外)", en: "Outside Gate Near Exit D" }, exit: "D" }], surroundings: { zh: ["天虹"], en: ["Rainbow Mall"] }, transfer: ["16"], x: 1420, y: -20 }
+    { id: "327", name: { zh: "南联", en: "Nanlian" }, toilet: { zh: "B4口站外摩尔城商场内", en: "Outside Exit B4, inside More Mall" }, toilets: [{ location: { zh: "B4口站外摩尔城商场内", en: "Outside Exit B4, inside More Mall" }, exit: "B4" }], surroundings: { zh: ["南联"], en: ["Nanlian"] }, x: 1390, y: 0 },
+    {
+      id: "328",
+      name: { zh: "双龙", en: "Shuanglong" },
+      toilet: { zh: "B口公厕及A口天虹商场", en: "Exit B Public Toilet & Exit A Rainbow Mall" },
+      toilets: [
+        { location: { zh: "B出入口公共洗手间", en: "Exit B Public Restroom" }, exit: "B" },
+        { location: { zh: "A出入口天虹商场", en: "Exit A Rainbow Mall" }, exit: "A" }
+      ],
+      surroundings: { zh: ["天虹"], en: ["Rainbow Mall"] },
+      transfer: ["16"],
+      x: 1420, y: -20
+    }
   ]
 };
 
