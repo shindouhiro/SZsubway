@@ -63,6 +63,168 @@ export function MapVisualization({
   const zoomOut = () => setTransform(prev => ({ ...prev, k: Math.max(prev.k / 1.2, 0.5) }));
   const resetZoom = () => setTransform({ x: 0, y: 0, k: 1 });
 
+  // Touch handling refs
+  const touchState = useRef<{
+    mode: 'none' | 'pan' | 'pinch';
+    startDist: number;
+    startK: number;
+    startX: number;
+    startY: number;
+    lastX: number;
+    lastY: number;
+  }>({
+    mode: 'none',
+    startDist: 0,
+    startK: 1,
+    startX: 0,
+    startY: 0,
+    lastX: 0,
+    lastY: 0,
+  });
+
+  // Native touch listeners to support non-passive events (prevent scroll)
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        touchState.current.mode = 'pan';
+        touchState.current.lastX = e.touches[0].clientX;
+        touchState.current.lastY = e.touches[0].clientY;
+      } else if (e.touches.length === 2) {
+        e.preventDefault();
+        touchState.current.mode = 'pinch';
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        touchState.current.startDist = dist;
+        // We need to access the current transform state here.
+        // Since we can't easily access the react state inside this effect without dependencies,
+        // we'll rely on the functional update form in touchMove or store current transform in a ref.
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (touchState.current.mode === 'pan' && e.touches.length === 1) {
+        e.preventDefault();
+        const clientX = e.touches[0].clientX;
+        const clientY = e.touches[0].clientY;
+        const dx = clientX - touchState.current.lastX;
+        const dy = clientY - touchState.current.lastY;
+
+        touchState.current.lastX = clientX;
+        touchState.current.lastY = clientY;
+
+        setTransform(prev => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
+      } else if (touchState.current.mode === 'pinch' && e.touches.length === 2) {
+        e.preventDefault();
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+
+        setTransform(prev => {
+          const scaleFactor = dist / touchState.current.startDist;
+          // Apply scale factor to the scale available WHEN PINCH STARTED would be better,
+          // but since we update incrementally, accurate pinch is harder without "startK".
+          // Let's defer "startK" capture to the first move or try to capture it via a synced ref.
+          // Simplified: adjust relative to previous frame? No, drift.
+          // Better: just multiply diff.
+
+          // Actually, let's use a simpler approach:
+          // On every move, calculate ratio vs previous move? 
+          // Or capture 'startK' in a ref updated by valid renders?
+          return prev;
+        });
+
+        // To properly implement pinch w/o state dependency issues:
+        // We will calculate the ratio of change since *start* of pinch?
+        // But we need the 'base' k.
+      }
+    };
+
+    // Changing strategy: Use React synthetic events for simple cases, 
+    // but for 'preventDefault' on touch, we definitely need ref listener on the CONTAINER.
+    // However, if we put listeners here, we need access to 'transform'.
+
+    // Let's restart the effect strategy below with a mutable ref for transform.
+  }, []);
+
+  // Correct implementation using refs to access latest state
+  const transformRef = useRef(transform);
+  transformRef.current = transform;
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        touchState.current = {
+          mode: 'pan',
+          startDist: 0,
+          startK: transformRef.current.k,
+          startX: 0, startY: 0, // Unused for simple delta pan
+          lastX: e.touches[0].clientX,
+          lastY: e.touches[0].clientY,
+        };
+      } else if (e.touches.length === 2) {
+        e.preventDefault();
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        touchState.current = {
+          mode: 'pinch',
+          startDist: dist,
+          startK: transformRef.current.k,
+          startX: 0, startY: 0,
+          lastX: 0, lastY: 0,
+        };
+      }
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (touchState.current.mode === 'pan' && e.touches.length === 1) {
+        e.preventDefault(); // Stop scrolling
+        const dx = e.touches[0].clientX - touchState.current.lastX;
+        const dy = e.touches[0].clientY - touchState.current.lastY;
+
+        touchState.current.lastX = e.touches[0].clientX;
+        touchState.current.lastY = e.touches[0].clientY;
+
+        setTransform(prev => ({ ...prev, x: prev.x + dx, y: prev.y + dy }));
+      } else if (touchState.current.mode === 'pinch' && e.touches.length === 2) {
+        e.preventDefault(); // Stop zooming page
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+
+        const scale = Math.min(Math.max(0.5, touchState.current.startK * (dist / touchState.current.startDist)), 5);
+        setTransform(prev => ({ ...prev, k: scale }));
+      }
+    };
+
+    const onTouchEnd = () => {
+      touchState.current.mode = 'none';
+    };
+
+    el.addEventListener('touchstart', onTouchStart, { passive: false });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('touchend', onTouchEnd);
+    el.addEventListener('touchcancel', onTouchEnd);
+
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+      el.removeEventListener('touchend', onTouchEnd);
+      el.removeEventListener('touchcancel', onTouchEnd);
+    };
+  }, []); // Empty deps, relies on transformRef
+
   return (
     <div
       ref={containerRef}

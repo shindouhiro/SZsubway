@@ -52,39 +52,50 @@ export default function Home() {
         <div className="lg:col-span-4 flex flex-col gap-6 order-2 lg:order-1">
 
           {/* Header */}
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl shadow-sm border border-zinc-200 dark:border-zinc-800 flex justify-between items-start">
+          <div className="glass-card p-8 rounded-[2rem] flex justify-between items-start animate-fade-in-up" style={{ animationDelay: '0ms' }}>
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                {t('title')}
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-foreground mb-2 tracking-tight flex items-center gap-3">
+                <span className="text-5xl animate-float">🚇</span>
+                <span className="bg-gradient-to-r from-zinc-800 to-zinc-500 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent">
+                  {t('title')}
+                </span>
               </h1>
-              <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+              <p className="text-muted-foreground text-sm font-medium tracking-wide ml-1">
                 {t('subtitle')}
               </p>
             </div>
-            <button
-              onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
-              className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg text-xs font-semibold hover:bg-zinc-200 dark:hover:bg-zinc-700 transition"
-            >
-              {lang === 'zh' ? 'EN' : '中文'}
-            </button>
+            <div className="flex flex-col gap-3 items-end">
+              <button
+                onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
+                className="px-5 py-2 glass-card !bg-white/80 dark:!bg-black/50 text-xs font-bold hover:scale-105 active:scale-95 transition-all shadow-sm border border-black/5 dark:border-white/10 uppercase tracking-widest"
+              >
+                {lang === 'zh' ? 'EN' : '中文'}
+              </button>
+            </div>
           </div>
 
           {/* Search */}
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl shadow-sm border border-zinc-200 dark:border-zinc-800">
-            <label className="block text-sm font-medium text-zinc-500 mb-2">
+          <div className="glass-card p-8 rounded-[2rem] animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            <label className="block text-xs font-bold text-muted-foreground uppercase tracking-widest mb-4 ml-1">
               {t('searchLabel')}
             </label>
-            <input
-              type="text"
-              placeholder={t('searchPlaceholder')}
-              className="w-full bg-zinc-100 dark:bg-zinc-950 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setSelectedLineId(null);
-                setSelectedStationId(null);
-              }}
-            />
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <input
+                type="text"
+                placeholder={t('searchPlaceholder')}
+                className="glass-input relative w-full rounded-2xl px-6 py-4 outline-none placeholder:text-muted-foreground/40 text-foreground text-lg font-medium"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setSelectedLineId(null);
+                  setSelectedStationId(null);
+                }}
+              />
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
+                🔍
+              </div>
+            </div>
             {searchQuery && (
               <ul className="mt-4 space-y-2 max-h-40 overflow-y-auto custom-scrollbar">
                 {searchResults.map((res) => (
@@ -116,9 +127,9 @@ export default function Home() {
           </div>
 
           {/* Line Selector */}
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl shadow-sm border border-zinc-200 dark:border-zinc-800">
-            <h2 className="text-lg font-semibold mb-4">{t('selectLine')}</h2>
-            <div className="flex flex-wrap gap-2">
+          <div className="glass-card p-8 rounded-[2rem] animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <h2 className="text-xs font-bold uppercase tracking-widest mb-6 text-muted-foreground ml-1">{t('selectLine')}</h2>
+            <div className="flex flex-wrap gap-3">
               {subwayData.map((line) => (
                 <button
                   key={line.id}
@@ -126,9 +137,9 @@ export default function Home() {
                     setSelectedLineId(line.id);
                     setSelectedStationId(null);
                   }}
-                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all transform active:scale-95 ${selectedLineId === line.id
-                    ? "text-white shadow-lg ring-2 ring-offset-2 dark:ring-offset-black"
-                    : "bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300"
+                  className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 transform border shadow-sm ${selectedLineId === line.id
+                    ? "text-white shadow-lg ring-4 ring-offset-2 dark:ring-offset-black scale-105 border-transparent z-10"
+                    : "bg-white dark:bg-zinc-800/50 hover:bg-zinc-50 dark:hover:bg-zinc-800 border-black/5 dark:border-white/5 text-muted-foreground hover:text-foreground hover:-translate-y-0.5"
                     }`}
                   style={{
                     backgroundColor:
@@ -144,20 +155,26 @@ export default function Home() {
 
           {/* Station List (if line selected) */}
           {selectedLine && !selectedStation && (
-            <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl shadow-sm border border-zinc-200 dark:border-zinc-800 flex-1 overflow-hidden flex flex-col min-h-[200px]">
-              <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <span
-                  className="w-3 h-3 rounded-full"
+            <div className="glass-card p-8 rounded-[2rem] flex-1 overflow-hidden flex flex-col min-h-[300px] animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-black/5 dark:border-white/5">
+                <div
+                  className="w-12 h-12 rounded-2xl shadow-lg ring-1 ring-black/5 dark:ring-white/10 flex items-center justify-center text-white font-bold text-lg"
                   style={{ backgroundColor: selectedLine.color }}
-                />
-                {t('stations')}
-              </h2>
+                >
+                  {selectedLine.id}
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-foreground">{selectedLine.name[lang]}</h2>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{t('stations')}</p>
+                </div>
+              </div>
               <div className="overflow-y-auto space-y-2 pr-2 custom-scrollbar">
-                {selectedLine.stations.map((station) => (
+                {selectedLine.stations.map((station, idx) => (
                   <button
                     key={station.id}
                     onClick={() => setSelectedStationId(station.id)}
-                    className="w-full text-left p-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-between group"
+                    className="w-full text-left p-4 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 transition-all flex items-center justify-between group text-foreground border border-transparent hover:border-black/5 dark:hover:border-white/5 animate-fade-in-up"
+                    style={{ animationDelay: `${idx * 20}ms` }}
                   >
                     <span className="font-medium">{station.name[lang]}</span>
                     <div className="flex gap-1">
@@ -178,27 +195,34 @@ export default function Home() {
 
           {/* Station Detail (if station selected) */}
           {selectedStation && (
-            <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl shadow-sm border border-zinc-200 dark:border-zinc-800 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="flex items-center justify-between mb-6">
+            <div className="glass-card p-8 rounded-[2rem] animate-fade-in-up duration-500">
+              <div className="flex items-center justify-between mb-8 pb-8 border-b border-black/5 dark:border-white/5">
                 <div>
-                  <h2 className="text-2xl font-bold">{selectedStation.name[lang]}</h2>
-                  <p className="text-sm text-zinc-500">{t('stationDetails')}</p>
+                  <h2 className="text-4xl font-extrabold tracking-tight text-foreground">{selectedStation.name[lang]}</h2>
+                  <div className="flex items-center gap-2 mt-2">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-zinc-100 dark:bg-zinc-800 text-muted-foreground uppercase tracking-widest border border-black/5 dark:border-white/5">
+                      Station
+                    </span>
+                  </div>
                 </div>
                 <button
                   onClick={() => setSelectedStationId(null)}
-                  className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors"
+                  className="w-10 h-10 flex items-center justify-center bg-black/5 dark:bg-white/5 hover:bg-red-500/10 hover:text-red-500 rounded-full transition-colors backdrop-blur-sm"
                 >
                   ✕
                 </button>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {/* Toilet Info */}
-                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-100 dark:border-blue-800/50">
-                  <div className="flex items-center gap-2 mb-2 text-blue-700 dark:text-blue-300 font-semibold">
-                    <span className="text-lg">🚻</span> {t('toilet')}
+                <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl border border-blue-100 dark:border-blue-500/20 shadow-sm relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity text-6xl rotate-12">
+                    🚻
                   </div>
-                  <p className="text-zinc-700 dark:text-zinc-300">
+                  <div className="flex items-center gap-3 mb-3 text-blue-600 dark:text-blue-400 font-bold relative z-10">
+                    <span className="text-xl p-2 bg-white/50 dark:bg-black/20 rounded-xl">🚻</span> {t('toilet')}
+                  </div>
+                  <p className="text-foreground/90 font-medium leading-relaxed relative z-10 pl-1">
                     {selectedStation.toilet[lang]}
                   </p>
                 </div>
@@ -244,7 +268,7 @@ export default function Home() {
         {/* Right Column: Map */}
         <div className="lg:col-span-8 order-1 lg:order-2">
           {/* Mobile responsive height for map */}
-          <div className="h-[400px] lg:h-[600px] w-full">
+          <div className="h-[50vh] min-h-[400px] lg:h-[600px] w-full">
             <MapVisualization
               data={subwayData}
               selectedLine={selectedLine}
@@ -256,39 +280,23 @@ export default function Home() {
               t={t}
             />
           </div>
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 text-center">
-              <div className="text-3xl font-bold text-zinc-900 dark:text-white">
-                {subwayData.length}
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+            {[
+              { label: t('lines'), value: subwayData.length, icon: "🚇" },
+              { label: t('totalStations'), value: subwayData.reduce((acc, line) => acc + line.stations.length, 0), icon: "🚉" },
+              { label: t('landmarks'), value: "8+", icon: "🏙️" },
+              { label: t('service'), value: t('serviceHours'), icon: "🕒" }
+            ].map((stat, i) => (
+              <div key={i} className="glass-card p-6 rounded-[2rem] text-center group hover:-translate-y-2 transition-transform duration-500 border-t border-t-white/50 dark:border-t-white/10">
+                <div className="text-2xl mb-2 opacity-50 group-hover:scale-125 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0">{stat.icon}</div>
+                <div className="text-2xl font-black text-foreground tracking-tight">
+                  {stat.value}
+                </div>
+                <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-2">
+                  {stat.label}
+                </div>
               </div>
-              <div className="text-xs text-zinc-500 uppercase tracking-wider font-medium">
-                {t('lines')}
-              </div>
-            </div>
-            <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 text-center">
-              <div className="text-3xl font-bold text-zinc-900 dark:text-white">
-                {subwayData.reduce((acc, line) => acc + line.stations.length, 0)}
-              </div>
-              <div className="text-xs text-zinc-500 uppercase tracking-wider font-medium">
-                {t('totalStations')}
-              </div>
-            </div>
-            <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 text-center">
-              <div className="text-3xl font-bold text-zinc-900 dark:text-white">
-                8+
-              </div>
-              <div className="text-xs text-zinc-500 uppercase tracking-wider font-medium">
-                {t('landmarks')}
-              </div>
-            </div>
-            <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 text-center">
-              <div className="text-3xl font-bold text-zinc-900 dark:text-white">
-                {t('serviceHours')}
-              </div>
-              <div className="text-xs text-zinc-500 uppercase tracking-wider font-medium">
-                {t('service')}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
